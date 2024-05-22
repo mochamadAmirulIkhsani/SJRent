@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'SJRent Rental Motor',
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF009688)),
         useMaterial3: true,
       ),
       home: const Homepage(),

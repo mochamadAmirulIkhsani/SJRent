@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:rental_motor_sjrent/homepage.dart';
+import 'package:rental_motor_sjrent/kelolamotor.dart';
+import 'package:rental_motor_sjrent/listall.dart';
+import 'package:rental_motor_sjrent/schedule.dart';
 
-class BottomNavigationBarWidget extends StatelessWidget {
+class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({super.key});
 
+  @override
+  State<BottomNavigationBarWidget> createState() => _BottomNavigationBarWidgetState();
+}
+
+class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +22,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 3,
-            offset: Offset(0, 1), // changes position of shadow
+            offset: const Offset(0, 1), // changes position of shadow
           ),
         ],
       ),
@@ -38,6 +47,13 @@ class BottomNavigationBarWidget extends StatelessWidget {
             label: 'Tambah',
           ),
         ],
+        
+        onTap: (value) => {
+          if (value == 0) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Homepage(),)),
+          if (value == 1) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const listAll(),)),
+          if (value == 2) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const schedule(),)),
+          if (value == 3) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const kelolaMotor(),))
+        },
       ),
     );
   }

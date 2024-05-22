@@ -8,12 +8,14 @@ class searchbar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 60,
+        width: 350,
+        height: 40,
         child: TextField(
           decoration: InputDecoration(
             contentPadding: EdgeInsets.all(0.0),
             hintText: 'Cari Nama Motor',
             prefixIcon: const Icon(Icons.search),
+
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.teal),
               borderRadius: BorderRadius.circular(100.0),
