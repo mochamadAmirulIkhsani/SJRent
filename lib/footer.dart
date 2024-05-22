@@ -4,14 +4,14 @@ import 'package:rental_motor_sjrent/kelolamotor.dart';
 import 'package:rental_motor_sjrent/listall.dart';
 import 'package:rental_motor_sjrent/schedule.dart';
 
-class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
 
   @override
-  State<BottomNavigationBarWidget> createState() => _BottomNavigationBarWidgetState();
+  State<BottomNavBar> createState() => _BottomNavigationBarWidgetState();
 }
 
-class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+class _BottomNavigationBarWidgetState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,12 +47,27 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
             label: 'Tambah',
           ),
         ],
-        
-        onTap: (value) => {
-          if (value == 0) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Homepage(),)),
-          if (value == 1) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const listAll(),)),
-          if (value == 2) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const schedule(),)),
-          if (value == 3) Navigator.of(context).push(MaterialPageRoute(builder: (context) => const kelolaMotor(),))
+        onTap: (value) {
+          Widget destinationPage;
+          if (value == 0) {
+            destinationPage = const Homepage();
+          } else if (value == 1) {
+            destinationPage = const listAll();
+          } else if (value == 2) {
+            destinationPage = const schedule();
+          } else if (value == 3) {
+            destinationPage = const kelolaMotor();
+          } else {
+            return;
+          }
+
+          Navigator.of(context).pushReplacement(
+            PageRouteBuilder(
+              pageBuilder: (context, animation1, animation2) => destinationPage,
+              transitionDuration: Duration.zero,
+              reverseTransitionDuration: Duration.zero,
+            ),
+          );
         },
       ),
     );
