@@ -54,7 +54,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavBar> {
           } else if (value == 1) {
             destinationPage = const listAll();
           } else if (value == 2) {
-            destinationPage = const schedule();
+            destinationPage = const SchedulePage();
           } else if (value == 3) {
             destinationPage = const kelolaMotor();
           } else {
